@@ -77,7 +77,7 @@ pipeline {
      
 	  stage ('Container scanning') {
             steps {
-           	       aquaMicroscanner imageName: 'webappimage:1f77e13186b8a161afb73eeaa946cf9ea730bd55', notCompliesCmd: '', onDisallowed: 'ignore', outputFormat: 'html' 
+           	       aquaMicroscanner imageName: 'jackheal445/webappimage:latest', notCompliesCmd: '', onDisallowed: 'ignore', outputFormat: 'html' 
            }
 			}
 	  
