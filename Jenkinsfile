@@ -78,7 +78,7 @@ pipeline {
             steps {
            	       aquaMicroscanner imageName: 'webappimage:182d3ee89f4e92028d6a8272de538fb6bfd12a61', notCompliesCmd: '', onDisallowed: 'ignore', outputFormat: 'html' 
            }
-     
+			}
 	  
     stage ('DAST') {
       steps {
