@@ -20,7 +20,7 @@ pipeline {
     stage ('Check-Git-Secrets') {
 	steps {
 		sh 'rm trufflelog || true'
-		sh 'docker run gesellix/trufflehog --json --regex https://github.com/save2017/Anusha.git > trufflehog'
+		sh 'docker run gesellix/trufflehog --json --regex https://github.com/AjayKumar1904/TrialDevops.git > trufflehog'
 		sh 'cat trufflehog'
 		}
 			}
@@ -29,7 +29,7 @@ pipeline {
 	steps{
 		sh 'mvn clean'
 		sh 'rm owasp* || true'
-		sh 'wget "https://raw.githubusercontent.com/save2017/Anusha/master/owasp-dependency-check.sh" '
+		sh 'wget "https://raw.githubusercontent.com/AjayKumar1904/TrialDevops/master/owasp-dependency-check.sh" '
 		sh 'chmod +x owasp-dependency-check.sh'
 		sh 'bash owasp-dependency-check.sh'
 		}
