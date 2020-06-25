@@ -70,14 +70,14 @@ pipeline {
 	        stage ('Pushing to dockerhub') {
             steps {
            	    sh 'docker login -u ${USERNAME} -p ${PASSWORD}'
-		    sh 'docker tag webappimage:$docker_tag jackheal445/webappimage:latest'
-		    sh 'docker push jackheal445/webappimage:latest'    
+		    sh 'docker tag webappimage:$docker_tag jackheal445/webappimage:$docker_tag'
+		    sh 'docker push jackheal445/webappimage:$docker_tag'    
            }       
     }
      
 	  stage ('Container scanning') {
             steps {
-           	       aquaMicroscanner imageName: 'jackheal445/webappimage:latest', notCompliesCmd: '', onDisallowed: 'ignore', outputFormat: 'html' 
+           	       aquaMicroscanner imageName: 'jackheal445/webappimage:$docker_tag', notCompliesCmd: '', onDisallowed: 'ignore', outputFormat: 'html' 
            }
 			}
 	  
